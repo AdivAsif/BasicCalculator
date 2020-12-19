@@ -6,7 +6,7 @@ using namespace std;
 
 bool loop = true;
 int choice = 0;
-vector<string> options = { "Addition", "Subtraction", "Multiplication", "Division", "Euclidean Distance between two points", "Factorial", "Exit" };
+vector<string> options = { "Addition", "Subtraction", "Multiplication", "Division", "Euclidean Distance between two points", "Factorial", "Sort", "Exit" };
 
 int main() {
   while (loop == true) {
@@ -17,10 +17,10 @@ int main() {
     }
     cin >> choice;
     cout << options[choice - 1] << " chosen. \n";
-    if (choice > 0 && choice < 7) {
+    if (choice > 0 && choice < options.size()) {
       handler(choice);
     }
-    else if (choice == 7) {
+    else if (choice = options.size() + 1) {
       cout << "Goodbye";
       loop = false;
     }

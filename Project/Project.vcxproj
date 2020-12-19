@@ -146,6 +146,7 @@
     <ClCompile Include="handler.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="multiplication.cpp" />
+    <ClCompile Include="sort.cpp" />
     <ClCompile Include="subtraction.cpp" />
   </ItemGroup>
   <ItemGroup>

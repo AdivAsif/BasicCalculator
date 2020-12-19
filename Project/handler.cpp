@@ -1,15 +1,11 @@
 #include "functions.h"
 #include <iostream>
+#include <vector>
 using namespace std;
 
 double read(istream& is) {
   double x;
   is >> x;
-  if (!x) {
-    printf("The point cannot be null. \n");
-    cin.clear();
-    return 0;
-  }
   return x;
 }
 
@@ -18,7 +14,7 @@ void print(ostream& os, double x) {
 }
 
 void handler(int n) {
-  if (n == 1) {
+  if (n == 1) {   // addition
     cout << "Input First Number: " << endl;
     auto x = read(cin);
     cout << "Input Second Number: " << endl;
@@ -27,7 +23,7 @@ void handler(int n) {
     cout << "Addition between numbers: (" << x << ") and (" << y << ") = " << endl;
     print(cout, addition(x, y));
   }
-  else if (n == 2) {
+  else if (n == 2) {    // subtraction
     cout << "Input First Number: " << endl;
     auto x = read(cin);
     cout << "Input Second Number: " << endl;
@@ -36,7 +32,7 @@ void handler(int n) {
     cout << "Subtraction between numbers: (" << x << ") and (" << y << ") = " << endl;
     print(cout, subtraction(x, y));
   }
-  else if (n == 3) {
+  else if (n == 3) {    // multiplication
     cout << "Input First Number: " << endl;
     auto x = read(cin);
     cout << "Input Second Number: " << endl;
@@ -45,7 +41,7 @@ void handler(int n) {
     cout << "Multiplication between numbers: (" << x << ") and (" << y << ") = " << endl;
     print(cout, multiplication(x, y));
   }
-  else if (n == 4) {
+  else if (n == 4) {    // division
     cout << "Input First Number: " << endl;
     auto x = read(cin);
     cout << "Input Second Number: " << endl;
@@ -54,7 +50,7 @@ void handler(int n) {
     cout << "Division between numbers: (" << x << ") and (" << y << ") = " << endl;
     print(cout, division(x, y));
   }
-  else if (n == 5) {
+  else if (n == 5) {    // euclidean
     double l1[2], l2[2];
     double dist;
     cout << "Input X1: " << endl;
@@ -70,11 +66,34 @@ void handler(int n) {
     cout << "Euclidean distance between points: (" << l1[0] << ", " << l1[1] << ") and (" << l2[0] << ", " << l2[1] << ") = " << endl;
     print(cout, dist);
   }
-  else if (n == 6) {
+  else if (n == 6) {    // factorial
     cout << "Input Number: " << endl;
     auto x = read(cin);
 
     cout << "Factorial of: (" << x << ") = " << endl;
     print(cout, factorial(x));
+  }
+  else if (n == 7) {    // sort
+    cout << "Input size of the array: " << endl;
+    auto x = read(cin);
+    vector<int> array;
+    for (int i = 0; i < x; i++) {
+      cout << "Input number at position: (" << i + 1 << ") \n";
+      array.push_back(read(cin));
+    }
+    int n = sizeof(array);
+    cout << "Original Array: \n";
+    for (vector<int>::iterator i = array.begin(); i != array.end(); i++) {
+      cout << "[" << *i << "]";
+    }
+
+    cout << "\n";
+    quickSort(array, 0, array.size() - 1);
+
+    cout << "Sorted Array (QuickSort): \n";
+    for (vector<int>::iterator i = array.begin(); i != array.end(); i++) {
+      cout << "[" << *i << "]";
+    }
+    cout << "\n";
   }
 }
