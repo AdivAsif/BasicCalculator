@@ -26,6 +26,22 @@ int partition(vector<int>& array, int start, int end) {
   return i;
 }
 
+void swap(int* a, int* b) {
+  int temp = *a;
+  *a = *b;
+  *b = temp;
+}
+
+void bubbleSort(vector<int>& arr) {
+  for (int i = 0; i < arr.size(); i++) {
+    for (int j = 0; j < arr.size(); j++) {
+      if (arr[j] > arr[i]) {
+        swap(&arr[j], &arr[j + 1]);
+      }
+    }
+  }
+}
+
 void quickSort(vector<int>& array, int start, int end) {
   if (start < end) {
     int pivot = partition(array, start, end);

@@ -13,6 +13,12 @@ void print(ostream& os, double x) {
   os << x << "\n";
 }
 
+void printVector(vector<int> arr) {
+  for (vector<int>::iterator i = arr.begin(); i != arr.end(); i++) {
+    cout << "[" << *i << "]";
+  }
+}
+
 void handler(int n) {
   if (n == 1) {   // addition
     cout << "Input First Number: " << endl;
@@ -74,6 +80,7 @@ void handler(int n) {
     print(cout, factorial(x));
   }
   else if (n == 7) {    // sort
+    int choice;
     cout << "Input size of the array: " << endl;
     auto x = read(cin);
     vector<int> array;
@@ -83,17 +90,34 @@ void handler(int n) {
     }
     int n = sizeof(array);
     cout << "Original Array: \n";
-    for (vector<int>::iterator i = array.begin(); i != array.end(); i++) {
-      cout << "[" << *i << "]";
-    }
+
+    printVector(array);
 
     cout << "\n";
-    quickSort(array, 0, array.size() - 1);
 
-    cout << "Sorted Array (QuickSort): \n";
-    for (vector<int>::iterator i = array.begin(); i != array.end(); i++) {
-      cout << "[" << *i << "]";
+    cout << "Choose between 1. Bubblesort or 2. Quicksort: \n";
+    cin >> choice;
+
+    if (choice == 1) {
+      bubbleSort(array);
+
+      cout << "Sorted Array (BubbleSort): \n";
+
+      printVector(array);
+
+      cout << "\n";
     }
-    cout << "\n";
+    else if (choice == 2) {
+      quickSort(array, 0, array.size() - 1);
+
+      cout << "Sorted Array (QuickSort): \n";
+
+      printVector(array);
+
+      cout << "\n";
+    }
+    else {
+      cout << "Enter a valid option. \n";
+    }
   }
 }
